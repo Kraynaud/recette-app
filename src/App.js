@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Admin from './components/Admin'
 import Card from './components/Card'
 import recettes from './recettes'
+import ColorContext from './components/Color'
 
 import base from './base'
 
@@ -51,21 +52,24 @@ class App extends Component {
   render () {
     const cards = Object.keys(this.state.recettes)
       .map(key => <Card key={key} details={this.state.recettes[key]}/>)
+
     return (
-      <div className='box'>
-        <Header pseudo={this.state.pseudo}/>
-        <h1>Bonjour {this.state.pseudo}</h1>
-        <div className='cards'>
-          {cards}
+      <ColorContext>
+        <div className='box'>
+          <Header pseudo={this.state.pseudo}/>
+          <h1>Bonjour {this.state.pseudo}</h1>
+          <div className='cards'>
+            {cards}
+          </div>
+          <Admin
+          pseudo = {this.state.pseudo}
+          recettes={this.state.recettes}
+          ajouterRecette={this.ajouterRecette}
+          supprimerRecette={this.supprimerRecette}
+          majRecette={this.majRecette}
+          chargerExemple={this.chargerExemple}/>
         </div>
-        <Admin
-        pseudo = {this.state.pseudo}
-        recettes={this.state.recettes}
-        ajouterRecette={this.ajouterRecette}
-        supprimerRecette={this.supprimerRecette}
-        majRecette={this.majRecette}
-        chargerExemple={this.chargerExemple}/>
-      </div>
+      </ColorContext>
     )
   }
 }

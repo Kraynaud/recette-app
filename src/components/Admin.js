@@ -4,7 +4,7 @@ import AdminForm from './AdminForm'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import base, {firebaseApp} from '../base'
-import Login from '../Login'
+import Login from './Login'
 
 class Admin extends Component {
     state = {
