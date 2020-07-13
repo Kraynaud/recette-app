@@ -57,7 +57,6 @@ class App extends Component {
       <ColorContext>
         <div className='box'>
           <Header pseudo={this.state.pseudo}/>
-          <h1>Bonjour {this.state.pseudo}</h1>
           <div className='cards'>
             {cards}
           </div>
