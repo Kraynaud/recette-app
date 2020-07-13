@@ -8,7 +8,7 @@ import Login from './Login'
 
 class Admin extends Component {
     state = {
-        id : null,
+        uid : null,
         chef: null
     }
 
@@ -38,7 +38,7 @@ class Admin extends Component {
         const authProvider = new firebase.auth.FacebookAuthProvider()
         firebaseApp
             .auth()
-            .signInWithPopup('authProvider')
+            .signInWithPopup(authProvider)
             .then(this.handleAuth)
     }
 
