@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import AjouterRecette from './AjouterRecette'
-import AdminForm from './AdminForm'
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import base, {firebaseApp} from '../base'
-import Login from './Login'
+import AjouterRecette from './AjouterRecette';
+import AdminForm from './AdminForm';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import base, {firebaseApp} from '../base';
+import Login from './Login';
 
 class Admin extends Component {
     state = {
@@ -24,7 +24,7 @@ class Admin extends Component {
         const box = await base.fetch(this.props.pseudo, {context: this})
         if (!box.chef) {
             await base.post(`${this.props.pseudo}/chef`, {
-            date: authData.user.uid
+            data: authData.user.uid
         })
         }
 
@@ -55,7 +55,7 @@ class Admin extends Component {
         const logout = <button onClick={this.logout}>Déconnexion</button>
 
         if (!this.state.uid) {
-            return <Login authenticate={this.authenticate}></Login>
+            return <Login authenticate={this.authenticate} />
         }
 
         if (this.state.uid !== this.state.chef) {
