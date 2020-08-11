@@ -23,7 +23,7 @@ const AdminForm = ({
                 <textarea value={recette.ingredients} name="ingredients" onChange={e => handleChange(e, key)} rows="3" placeholder="Liste des ingrédients"/>
                 <textarea value={recette.instructions} name="instructions" onChange={e => handleChange(e, key)} rows="15" placeholder="Liste des instructions"/>
             </form>
-            <button onClick={() => suppprimerRecette[key]}>Supprimer</button>
+            <button onClick={() => supprimerRecette[key]}>Supprimer</button>
         </div>
     );
 };
